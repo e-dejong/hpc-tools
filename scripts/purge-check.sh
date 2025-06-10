@@ -46,7 +46,7 @@ echo "File list collected: $(wc -l < "$FILELIST") files found."
 # ----------------------
 # INITIALIZE OUTPUT FILES
 # ----------------------
-echo "Report for files older than 20 days" > "$REPORT_FILE"
+echo "Report for files older than 18 days" > "$REPORT_FILE"
 echo "----------------------------------------" >> "$REPORT_FILE"
 echo >> "$REPORT_FILE"
 
@@ -67,9 +67,9 @@ while read -r file; do
 
     mod_days=$(( ( $(date +%s) - mod_time ) / 86400 ))
 
-    if [ "$mod_days" -gt 20 ]; then
+    if [ "$mod_days" -gt 18 ]; then
         mod_date=$(date -d @"$mod_time" "+%Y-%m-%d")
-        purge_date=$(date -d "$mod_date +30 days" "+%Y-%m-%d")
+        purge_date=$(date -d "$mod_date +21 days" "+%Y-%m-%d")
 
         if [ "$SUMMARY_ONLY" = false ]; then
             echo "HIGH RISK OF PURGE: $file" >> "$REPORT_FILE"

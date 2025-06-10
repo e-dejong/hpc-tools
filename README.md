@@ -13,7 +13,7 @@ A collection of handy scripts for high-performance computing (HPC) environments,
 
 | Script | Purpose |
 |:------|:--------|
-| `purge-check-future.sh` | Scan scratch space for files at risk of purge and summarize high-risk directories. Supports `--summary-only` mode. |
+| `purge-check.sh` | Scan scratch space for files at risk of purge (>18 days old) and summarise high-risk directories. Supports `--summary-only` mode. |
 
 ---
 
@@ -24,3 +24,7 @@ Clone the repo:
 ```bash
 git clone git@github.com:yourusername/hpc-tools.git
 cd hpc-tools
+
+# run the scratch scan in summary only mode
+sbatch check_dates.sh --summary-only
+```
